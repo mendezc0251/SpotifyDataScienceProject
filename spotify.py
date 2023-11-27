@@ -36,6 +36,9 @@ print(df.isnull().sum())
 # You might want to explore other methods for handling missing values, such as imputation
 df = df.dropna(subset=['streams', 'bpm', 'danceability', 'valence', 'energy', 'acousticness'])
 
+# Convert 'streams' column to numeric
+df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
+
 # Explore correlations between numeric features
 numeric_columns = df.select_dtypes(include=[np.number]).columns
 correlation_matrix = df[numeric_columns].corr()
