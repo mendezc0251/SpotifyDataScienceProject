@@ -33,7 +33,6 @@ print("Missing Values:")
 print(df.isnull().sum())
 
 # Handle missing values more robustly
-# You might want to explore other methods for handling missing values, such as imputation
 df = df.dropna(subset=['streams', 'bpm', 'danceability', 'valence', 'energy', 'acousticness'])
 
 # Convert 'streams' column to numeric
